@@ -5,7 +5,7 @@ Flask session support Google Cloud Firestore
 　FlaskのGoogle Cloud Firestoreサポート拡張です。  
 　from flask-firestore-session import Session して、app.config['SESSION_TYPE']を'firestore'にした上でSession(app)すれば  
  FlaskのセッションがFirestoreに保存されます。  
-　app.confug['SESSION_FIRESTORE']に独自で建てたFirestore.clientを入れることが可能です（GAE環境でデフォルトがロードされます。　その他環境、ローカル開発時は手動で入れる必要があります）  
+　app.confug['SESSION_FIRESTORE']に独自で建てたFirestore.clientを入れることが可能です（入れないときGAE環境でデフォルトがロードされます。　その他環境、ローカル開発時は手動で入れる必要があります）  
 　app.config['SESSION_FIRESTORE_COLLECTION']に指定したコレクションに保存され、デフォルトはsessionsです。  
 　app.config['SESSION_KEY_PREFIX']がドキュメントのsidキーに保存されるセッションIDの前に付与され、デフォルトはsession_です（注意：ドキュメントIDではありません）  
 　Expireは呼び出し時のソフトウェア処理であり、ドキュメントの寿命は管理されていません。  必要ならexpiryキーの値で消去するタスクを組んでください。  
