@@ -1,7 +1,7 @@
 # flask-firestore-session
 Flask session support Google Cloud Firestore
 
-##JP:
+## JP:  
 　FlaskのGoogle Cloud Firestoreサポート拡張です。  
 　from flask-firestore-session import Session して、app.config['SESSION_TYPE']を'firestore'に、  
 app.config['SESSION_FIRESTORE']にFirestoreクライアントを入れた上でSession()すればFlaskのセッションが  
@@ -11,7 +11,7 @@ Firestoreに保存されます。
 　ローカル環境などでは、firestore.client()にサービスアカウントのCredentialを与える必要があります。  
 
 
-Use:
+## Use:
 ```
 from flask import Flask, session
 from flask-firestore-session import Session
