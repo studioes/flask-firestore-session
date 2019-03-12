@@ -1,17 +1,18 @@
 # flask-firestore-session
 Flask session support Google Cloud Firestore
 
-JP:
-　FlaskのGoogle Cloud Firestoreサポート拡張です。
-　from flask-firestore-session import Session して、app.config['SESSION_TYPE']を'firestore'に、
-app.config['SESSION_FIRESTORE']にFirestoreクライアントを入れた上でSession()すればFlaskのセッションが
-Firestoreに保存されます。
-　Expireは呼び出し時のソフトウェア処理で、キーの寿命は管理されていません。
-　GAE等であれば自動で同じプロジェクトのFirestoreに繋がるのでサンプルのまま動作します。　ローカル環境などでは、
-firestore.client()にサービスアカウントのCredentialを与える必要があります。
+##JP:
+　FlaskのGoogle Cloud Firestoreサポート拡張です。  
+　from flask-firestore-session import Session して、app.config['SESSION_TYPE']を'firestore'に、  
+app.config['SESSION_FIRESTORE']にFirestoreクライアントを入れた上でSession()すればFlaskのセッションが  
+Firestoreに保存されます。  
+　Expireは呼び出し時のソフトウェア処理で、キーの寿命は管理されていません。  
+　GAE等であれば自動で同じプロジェクトのFirestoreに繋がるのでサンプルのまま動作します。   
+　ローカル環境などでは、firestore.client()にサービスアカウントのCredentialを与える必要があります。  
+
 
 Use:
-
+```
 from flask import Flask, session
 from flask-firestore-session import Session
 from google.cloud import firestore
@@ -36,3 +37,4 @@ def session-set():
 def session-get():
   value = session['key']
   return 'Value:%s' % (value)
+```
