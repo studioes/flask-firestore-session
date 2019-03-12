@@ -11,6 +11,7 @@ app.config['SESSION_KEY_PREFIX']がドキュメントのsidキーに保存され
 　Expireは呼び出し時のソフトウェア処理であり、キーの寿命は管理されていません。  必要ならexpiryキーの値で消去するタスクを組んでください。  
 　GAE等であれば自動で同じプロジェクトのFirestoreに繋がるのでサンプルのまま動作します。   
 　ローカル環境などでは、firestore.client()にサービスアカウントのCredentialを与える必要があります。  
+　デフォルトのsessionのバックエンドになるので、処理中では普通のsessionとして使えます。
 
 
 ## Use:
@@ -35,7 +36,7 @@ def session-set():
   session['key'] = 'value'
   return 'Set'
   
-@app.route('/session-set')
+@app.route('/session-get')
 def session-get():
   value = session['key']
   return 'Value:%s' % (value)
