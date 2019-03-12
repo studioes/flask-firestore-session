@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-    flask_session_firestore.sessions
+    flask-session-firestore.sessions
+
+    Flask session support library for Google Cloud Firestore.
     
     Hideyuki Obara, 2019.
 """
@@ -19,11 +21,6 @@ from werkzeug.datastructures import CallbackDict
 from itsdangerous import Signer, BadSignature, want_bytes
 
 
-PY2 = sys.version_info[0] == 2
-if not PY2:
-    text_type = str
-else:
-    text_type = unicode
 
 
 def total_seconds(td):
@@ -31,7 +28,6 @@ def total_seconds(td):
 
 
 class ServerSideSession(CallbackDict, SessionMixin):
-    """Baseclass for server-side based sessions."""
 
     def __init__(self, initial=None, sid=None, permanent=None):
         def on_update(self):
@@ -63,8 +59,8 @@ class FirestoreSessionInterface(SessionInterface):
     """Uses the Firestore from a flask app as a session backend.
 
     :param app: A Flask app instance.
-    :param db: A Flask-Firestore instance.
-    :param collection: The collection name you want to use.
+    :param db: A Firestore client instance.
+    :param collection: The collection name.
     :param key_prefix: A prefix that is added to all store keys.
     :param use_signer: Whether to sign the session id cookie or not.
     :param permanent: Whether to use permanent session or not.

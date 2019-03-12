@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-    flask_session_firestore
+    flask-firestore-session
+    
+    Flask session support library for Google Cloud Firestore.
 
     Hideyuki Obara, 2019.
 """
