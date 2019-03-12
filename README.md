@@ -9,7 +9,7 @@ Firestoreに保存されます。
 app.config['SESSION_FIRESTORE_COLLECTION']に指定したコレクションに保存され、デフォルトはsessionsです。  
 app.config['SESSION_KEY_PREFIX']がドキュメントのsidキーに保存されるセッションIDの前に付与され、デフォルトはsession_です（注意：ドキュメントIDではありません）  
 　Expireは呼び出し時のソフトウェア処理であり、キーの寿命は管理されていません。  必要ならexpiryキーの値で消去するタスクを組んでください。  
-　GAE等であれば自動で同じプロジェクトのFirestoreに繋がるのでサンプルのまま動作します。   
+　GAE等であれば自動で同じプロジェクトのFirestoreに繋がるのでSESSION_TYPE指定のみで動作します。   
 　ローカル環境などでは、firestore.client()にサービスアカウントのCredentialを与える必要があります。  
 　デフォルトのsessionのバックエンドになるので、処理中では普通のsessionとして使えます。
 
